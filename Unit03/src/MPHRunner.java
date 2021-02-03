@@ -8,14 +8,14 @@
 
 import java.util.Scanner; 
 import static java.lang.System.*;
-import static java.lang.Math.*;
 
 public class MPHRunner
 {
 	public static void main( String[] args )
 	{
 		Scanner keyboard = new Scanner(in);
-
+		
+		//get data from user input
 		out.print("Enter the distance :: ");
 		int dist = keyboard.nextInt();
 
@@ -25,12 +25,10 @@ public class MPHRunner
 		out.print("Enter the minutes :: ");
 		int mins = keyboard.nextInt();
 
+		//calculate and display mph
 		MilesPerHour test = new MilesPerHour(dist, hrs, mins);
 		test.calcMPH();
 		test.print();
-		
-		//add more test cases
-		
 		
 	}
 }
