@@ -15,23 +15,28 @@ public class WordsCompare
 
 	public WordsCompare()
 	{
+		setWords("a", "b");
 	}
 
 	public WordsCompare(String one, String two)
 	{
+		setWords(one, two);
 	}
 
 	public void setWords(String one, String two)
 	{
-
+		wordOne = one;
+		wordTwo = two;
 	}
 
 	public void compare()
 	{
+		compare = wordOne.compareTo(wordTwo);
 	}
 
 	public String toString()
 	{
+		compare();
 		if(compare<0)
 		{
 			return wordOne + " should be placed before " + wordTwo + "\n";
