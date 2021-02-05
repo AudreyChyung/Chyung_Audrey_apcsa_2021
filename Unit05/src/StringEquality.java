@@ -14,7 +14,7 @@ public class StringEquality
 
 	public StringEquality()
 	{
-		setWords("a", "b");
+		setWords("", "");
 	}
 
 	public StringEquality(String one, String two)

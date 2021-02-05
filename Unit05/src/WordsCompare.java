@@ -15,7 +15,7 @@ public class WordsCompare
 
 	public WordsCompare()
 	{
-		setWords("a", "b");
+		setWords("", "");
 	}
 
 	public WordsCompare(String one, String two)
