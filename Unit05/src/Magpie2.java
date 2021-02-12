@@ -31,16 +31,45 @@ public class Magpie2
 	public String getResponse(String statement)
 	{
 		String response = "";
-		if (statement.indexOf("no") >= 0)
+		
+		//check statement length before checking for other keywords
+		if (statement.trim().length() < 1)
 		{
-			response = "Why so negative?";
+			response = "Say something, please.";
+			return response;
 		}
-		else if (statement.indexOf("mother") >= 0
+		
+		if (statement.indexOf("mother") >= 0
 				|| statement.indexOf("father") >= 0
 				|| statement.indexOf("sister") >= 0
 				|| statement.indexOf("brother") >= 0)
 		{
 			response = "Tell me more about your family.";
+		} 
+		else if (statement.indexOf("dog") >= 0
+				|| statement.indexOf("cat") >= 0)
+		{
+			response = "Tell me more about your pets.";
+		}
+		else if (statement.indexOf("Mauro") >= 0)
+		{
+			response = "Your teacher sounds awesome!";
+		}
+		else if (statement.indexOf("Magpie") >= 0)
+		{
+			response = "That's me!";
+		}
+		else if (statement.indexOf("food") >= 0)
+		{
+			response = "I'm hungry.";
+		}
+		else if (statement.indexOf("Hello") >= 0)
+		{
+			response = "Hey, what's up?";
+		}
+		else if (statement.indexOf("no") >= 0)
+		{
+			response = "Why so negative?";
 		}
 		else
 		{
@@ -55,7 +84,7 @@ public class Magpie2
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -75,6 +104,14 @@ public class Magpie2
 		else if (whichResponse == 3)
 		{
 			response = "You don't say.";
+		}
+		else if (whichResponse == 4)
+		{
+			response = "Neato.";
+		}
+		else if (whichResponse == 5)
+		{
+			response = "Is that so?";
 		}
 
 		return response;
