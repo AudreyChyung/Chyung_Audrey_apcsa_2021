@@ -34,16 +34,37 @@ public class Magpie3
 		{
 			response = "Say something, please.";
 		}
-		else if (findKeyword(statement, "no") >= 0)
-		{
-			response = "Why so negative?";
-		}
 		else if (findKeyword(statement, "mother") >= 0
 				|| findKeyword(statement, "father") >= 0
 				|| findKeyword(statement, "sister") >= 0
 				|| findKeyword(statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
+		}
+		else if (findKeyword(statement, "dog") >= 0
+				|| findKeyword(statement, "cat") >= 0)
+		{
+			response = "Tell me more about your pets.";
+		}
+		else if (findKeyword(statement, "Mauro") >= 0)
+		{
+			response = "Your teacher sounds awesome!";
+		}
+		else if (findKeyword(statement, "Magpie") >= 0)
+		{
+			response = "That's me!";
+		}
+		else if (findKeyword(statement, "food") >= 0)
+		{
+			response = "I'm hungry.";
+		}
+		else if (findKeyword(statement, "Hello") >= 0)
+		{
+			response = "Hey, what's up?";
+		}
+		else if (findKeyword(statement, "no") >= 0)
+		{
+			response = "Why so negative?";
 		}
 		else
 		{
