@@ -37,13 +37,15 @@ public class TriangleFive
 		
 		for (int i = 0; i < amount; i++) {
 			char tempLetter = letter;
+			
 			for (int j = 0; j < amount - i; j++) {
+				
 				for (int k = 0; k < amount - j; k++) {
 					output += tempLetter;
 				}
 				output += " ";
 				
-				//get the next letter, wrapping around to A if the letter is Z
+				//get the next letter, wrapping around from Z to A
 				if (tempLetter == 'Z')
 					tempLetter = 'A';
 				else 

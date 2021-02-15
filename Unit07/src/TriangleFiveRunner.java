@@ -8,6 +8,7 @@ public class TriangleFiveRunner
 {
    public static void main(String args[])
    {
+	   //test cases
 	   TriangleFive test = new TriangleFive('C', 4);
 	   System.out.println(test);
 	   
