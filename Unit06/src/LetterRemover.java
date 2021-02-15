@@ -12,7 +12,7 @@ public class LetterRemover
 	public LetterRemover()
 	{
 		//call set
-		setRemover("",' ');
+		setRemover("", ' ');
 	}
 
 	//add in second constructor
@@ -29,7 +29,7 @@ public class LetterRemover
 
 	public String removeLetters()
 	{
-		String cleaned=sentence;
+		String cleaned = sentence;
 		int loc = cleaned.indexOf(lookFor);
 		while(loc > -1) {
 			cleaned = cleaned.substring(0, loc) + cleaned.substring(loc + 1);
