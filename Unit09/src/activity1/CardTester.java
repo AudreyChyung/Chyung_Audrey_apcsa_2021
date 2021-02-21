@@ -11,7 +11,7 @@ public class CardTester {
 	 */
 	public static void main(String[] args) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-		Card kingDiamonds1 = new Card("king", "diamonds", 11);
+		Card kingDiamonds1 = new Card("king", "diamonds", 10);
 		Card fourSpades1 = new Card("4", "spades", 4);
 		Card fourSpades2 = new Card("4", "spades", 4);
 		
