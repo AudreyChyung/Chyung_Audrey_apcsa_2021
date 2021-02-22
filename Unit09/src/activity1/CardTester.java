@@ -23,6 +23,8 @@ public class CardTester {
 		System.out.println(aceDiamonds1.pointValue());
 		System.out.println(aceDiamonds1.toString());
 		
+		System.out.println("matches: " + aceDiamonds1.matches(fourSpades1));
+		
 		System.out.println("four of spades 1 tests");
 		System.out.println(fourSpades1.rank());
 		System.out.println(fourSpades1.suit());
@@ -34,5 +36,7 @@ public class CardTester {
 		System.out.println(fourSpades2.suit());
 		System.out.println(fourSpades2.pointValue());
 		System.out.println(fourSpades2.toString());
+		
+		System.out.println("matches: " + fourSpades2.matches(fourSpades1));
 	}
 }

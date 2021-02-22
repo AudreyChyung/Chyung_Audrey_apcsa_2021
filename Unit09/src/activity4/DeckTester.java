@@ -35,6 +35,7 @@ public class DeckTester {
 		Deck deck4 = new Deck(new String[]{"ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"}, new String[]{"hearts", "diamonds", "spades", "clubs"}, new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13});
 		System.out.println(deck4);
 		deck4.shuffle();
+		System.out.println("deal a card: " + deck4.deal());
 		System.out.println(deck4);
 		deck4.shuffle();
 		System.out.println(deck4);
