@@ -94,7 +94,8 @@ public class Shuffler {
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
 		for (int k = values.length - 1; k > 0; k--) {
-			int r = (int)(Math.random() * k);
+			int howMany = k + 1;
+			int r = (int)(Math.random() * howMany);
 			int temp = values[k];
 			values[k] = values[r];
 			values[r] = temp;
