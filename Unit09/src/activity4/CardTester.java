@@ -1,6 +1,6 @@
 package activity4;
 
-import activity2.Card;
+import activity4.Card;
 
 /**
  * This is a class that tests the Card class.
