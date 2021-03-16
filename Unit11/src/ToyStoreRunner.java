@@ -11,6 +11,10 @@ public class ToyStoreRunner
 {
 	public static void main( String args[] )
 	{
-
+		ToyStore test = new ToyStore();
+		System.out.println(test);
+		test.loadToys("sorry bat sorry sorry sorry train train teddy teddy ball ball");
+		System.out.println(test);
+		System.out.println(test.getMostFrequentToy());
 	}
 }
