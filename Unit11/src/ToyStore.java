@@ -46,11 +46,24 @@ public class ToyStore
   			}
   		}
   		
-  		return "max == " + toyList.get(ind).getName();
+  		return toyList.get(ind).getName();
   	}  
   
   	public void sortToysByCount()
   	{
+  		ArrayList<Toy> sorted = new ArrayList<Toy>();
+  		int num = toyList.size();
+  		for (int i = 0; i < num; i++) {
+  			int ind = 0;
+  			for (int j = 0; j < toyList.size(); j++) {
+  				if (toyList.get(j).getCount() < toyList.get(ind).getCount()) {
+  					ind = j;
+  				}
+  			}
+  			sorted.add(toyList.get(ind));
+  			toyList.remove(ind);
+  		}
+  		toyList = sorted;
   	}  
   	  
 	public String toString()
