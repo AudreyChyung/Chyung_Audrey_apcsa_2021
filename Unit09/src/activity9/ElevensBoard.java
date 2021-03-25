@@ -56,9 +56,9 @@ public class ElevensBoard extends Board {
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		if (selectedCards.size() == 2) {
-			
+			return containsPairSum11(selectedCards);
 		} else if (selectedCards.size() == 3) {
-			
+			return containsJQK(selectedCards);
 		} else {
 			return false;
 		}
@@ -76,7 +76,7 @@ public class ElevensBoard extends Board {
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		List<Integer> cIndexes = cardIndexes();
-		return containsPairSum11(cIndexes) || containsJQK(cIndexes);
+		return (containsPairSum11(cIndexes) || containsJQK(cIndexes));
 	}
 
 	/**
@@ -109,7 +109,12 @@ public class ElevensBoard extends Board {
 		boolean foundQueen = false;
 		boolean foundKing = false;
 		for (Integer kObj : selectedCards) {
-			
+			if ()
+				foundJack = true;
+			if ()
+				foundQueen = true;
+			if ()
+				foundKing = true;
 		}
 		return foundJack && foundQueen && foundKing;
 	}
