@@ -9,6 +9,17 @@ public class TotalRow
     public static List<Integer> getRowTotals( int[][] m )
     {
     	//add code here
-		return null;
+    	List<Integer> totals = new ArrayList<Integer>();
+    	int sum = 0;
+    	
+    	for (int i = 0; i < m.length; i++) {
+    		for (int j = 0; j < m[i].length; j++) {
+    			sum += m[i][j];
+    		}
+    		totals.add(sum);
+    		sum = 0;
+    	}
+    	
+		return totals;
     }
 }
