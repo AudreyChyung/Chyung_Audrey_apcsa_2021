@@ -20,17 +20,27 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	private Paddle rightPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
+	
+	private int leftScore;
+	private int rightScore;
 
 
 	public Pong()
 	{
 		//set up all variables related to the game
-
-
-
+		//instantiate a Ball
+		ball = new Ball(400,200);
+				
+		//instantiate a left Paddle
+		leftPaddle = new Paddle(30,200,10,50,5);
+				
+		//instantiate a right Paddle
+		rightPaddle = new Paddle(740,200,10,50,5);
 
 		keys = new boolean[4];
-
+		
+		leftScore = 0;
+		rightScore = 0;
     
     	setBackground(Color.WHITE);
 		setVisible(true);
@@ -57,53 +67,102 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
 
-
 		ball.moveAndDraw(graphToBack);
 		leftPaddle.draw(graphToBack);
 		rightPaddle.draw(graphToBack);
 
 
 		//see if ball hits left wall or right wall
-		if(!(ball.getX()>=10 && ball.getX()<=780))
+		if(ball.getX()<=10)
 		{
-			ball.setXSpeed(0);
-			ball.setYSpeed(0);
+			//ball.setXSpeed(0);
+			//ball.setYSpeed(0);
+			ball.draw(graphToBack, Color.white);
+			ball.setPos(400, 200);
+			graphToBack.setColor(Color.white);
+			graphToBack.drawString("Right score = " + rightScore, 20, 540);
+			graphToBack.setColor(Color.black);
+			rightScore++;
+		} else if (ball.getX()>=780) 
+		{
+			//ball.setXSpeed(0);
+			//ball.setYSpeed(0);
+			ball.draw(graphToBack, Color.white);
+			ball.setPos(400, 200);
+			graphToBack.setColor(Color.white);
+			graphToBack.drawString("Left score = " + leftScore, 20, 520);
+			graphToBack.setColor(Color.black);
+			leftScore++;
 		}
 
 		
 		//see if the ball hits the top or bottom wall 
-
-
+		if(!(ball.getY()>=10 && ball.getY()<=450))
+		{
+			ball.setYSpeed(-ball.getYSpeed());
+		}
 
 
 		//see if the ball hits the left paddle
-		
+		if ( ( ball.getX() <= leftPaddle.getX()+leftPaddle.getWidth()+Math.abs(ball.getXSpeed()) ) &&
+			 ( ball.getY() >= leftPaddle.getY() &&
+			   ball.getY() <= leftPaddle.getY()+leftPaddle.getHeight() ||
+			   ball.getY()+ball.getHeight() >= leftPaddle.getY() &&
+			   ball.getY()+ball.getHeight() < leftPaddle.getY()+leftPaddle.getHeight() ) )
+		{
+			if( ball.getX() <= leftPaddle.getX()+leftPaddle.getWidth()-Math.abs(ball.getXSpeed()) )
+				ball.setYSpeed(-ball.getYSpeed());
+			else
+				ball.setXSpeed(-ball.getXSpeed());
+		}
 		
 		
 		//see if the ball hits the right paddle
-		
-		
-		
+		if ( ( ball.getX() >= rightPaddle.getX()-rightPaddle.getWidth()-Math.abs(ball.getXSpeed()) ) &&
+				 ( ball.getY() >= rightPaddle.getY() &&
+				   ball.getY() <= rightPaddle.getY()+rightPaddle.getHeight() ||
+				   ball.getY()+ball.getHeight() >= rightPaddle.getY() &&
+				   ball.getY()+ball.getHeight() < rightPaddle.getY()+rightPaddle.getHeight() ) )
+			{
+				if( ball.getX() >= rightPaddle.getX()-rightPaddle.getWidth()+Math.abs(ball.getXSpeed()) )
+					ball.setYSpeed(-ball.getYSpeed());
+				else
+					ball.setXSpeed(-ball.getXSpeed());
+			}
 
 
 		//see if the paddles need to be moved
+		if(keys[0] == true)
+		{
+			leftPaddle.moveUpAndDraw(graphToBack);
+		}
+		if(keys[1] == true)
+		{
+			leftPaddle.moveDownAndDraw(graphToBack);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		}
+		if(keys[2] == true)
+		{
+			rightPaddle.moveUpAndDraw(graphToBack);
+		}
+		if(keys[3] == true)
+		{
+			rightPaddle.moveDownAndDraw(graphToBack);
+		}
+		//don't let paddles go off screen
+		if (leftPaddle.getY() < 0)
+			leftPaddle.setY(0);
+		if (rightPaddle.getY() < 0)
+			rightPaddle.setY(0);
+		if (leftPaddle.getY() > 500)
+			leftPaddle.setY(500);
+		if (rightPaddle.getY() > 500)
+			rightPaddle.setY(500);
+		
 		
 		twoDGraph.drawImage(back, null, 0, 0);
+		graphToBack.drawString("Left score = " + leftScore, 20, 520);
+		graphToBack.drawString("Right score = " + rightScore, 20, 540);
 	}
 
 	public void keyPressed(KeyEvent e)
@@ -137,10 +196,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
    		while(true)
    		{
    		   Thread.currentThread().sleep(8);
-            repaint();
-         }
-      }catch(Exception e)
-      {
-      }
-  	}	
+           repaint();
+        }
+   	}catch(Exception e)
+    {
+    }
+   }	
 }
