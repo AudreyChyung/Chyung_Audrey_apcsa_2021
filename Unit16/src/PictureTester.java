@@ -208,7 +208,7 @@ public class PictureTester
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
-    //testGrayscale();
+    testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorVerticalRightToLeft();
@@ -216,15 +216,15 @@ public class PictureTester
 	//testMirrorHorizontalBotToTop();
     //testMirrorTemple();
     //testMirrorArms();
-    //testMirrorGull();
+    testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
     //testMyCollage();
     //testEdgeDetection();
-    //testChromakey();
+    testChromakey();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
-    testClearBlueOverValue(200);
+    //testClearBlueOverValue(200);
   }
 }
