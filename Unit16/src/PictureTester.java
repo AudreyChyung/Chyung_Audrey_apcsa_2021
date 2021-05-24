@@ -47,6 +47,7 @@ public class PictureTester
   public static void testEdgeDetection()
   {
     Picture swan = new Picture("C:\\Users\\chyun\\OneDrive\\Documents\\GitHub\\Chyung_Audrey_apcsa_2021\\Unit16\\src\\images\\swan.jpg");
+    swan.explore();
     swan.edgeDetection(10);
     swan.explore();
   }
@@ -208,7 +209,7 @@ public class PictureTester
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
-    testGrayscale();
+    //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorVerticalRightToLeft();
@@ -216,13 +217,13 @@ public class PictureTester
 	//testMirrorHorizontalBotToTop();
     //testMirrorTemple();
     //testMirrorArms();
-    testMirrorGull();
+    //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
     //testMyCollage();
-    //testEdgeDetection();
-    testChromakey();
+    testEdgeDetection();
+    //testChromakey();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
