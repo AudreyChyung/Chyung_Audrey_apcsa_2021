@@ -520,6 +520,50 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public void blur(int x, int y, int w, int h) {
+	  System.out.println("Audrey Chyung, Period 3, 5/25/2021");
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel pixelObj = null;
+	  Pixel one = null;
+	  Pixel two = null;
+	  Pixel three = null;
+	  Pixel four = null;
+	  Pixel five = null;
+	  Pixel six = null;
+	  Pixel seven = null;
+	  Pixel eight = null;
+	  int avgR;
+	  int avgG;
+	  int avgB;
+	  
+	  if (x < 1)
+		  x = 1;
+	  if (y < 1)
+		  y = 1;
+	  
+	  for (int r = x; r < x+h; r++) {
+		  for (int c = y; c < y+w; c++) {
+			  pixelObj = pixels[r][c];
+			  //8 surrounding pixels
+			  one = pixels[r-1][c];
+			  two = pixels[r+1][c];
+			  three = pixels[r][c-1];
+			  four = pixels[r][c+1];
+			  five = pixels[r-1][c-1];
+			  six = pixels[r-1][c+1];
+			  seven = pixels[r+1][c-1];
+			  eight = pixels[r+1][c+1];
+			  avgR = (pixelObj.getRed() + one.getRed() + two.getRed() + three.getRed() + four.getRed() + five.getRed() + six.getRed() + seven.getRed() + eight.getRed())/9;
+			  avgG = (pixelObj.getGreen() + one.getGreen() + two.getGreen() + three.getGreen() + four.getGreen() + five.getGreen() + six.getGreen() + seven.getGreen() + eight.getGreen())/9;
+			  avgB = (pixelObj.getBlue() + one.getBlue() + two.getBlue() + three.getBlue() + four.getBlue() + five.getBlue() + six.getBlue() + seven.getBlue() + eight.getBlue())/9;
+			  pixelObj.setRed(avgR);
+			  pixelObj.setGreen(avgG);
+			  pixelObj.setBlue(avgB);
+			  
+		  }
+	  }
+  }
+  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
