@@ -22,11 +22,13 @@ public class Ship extends MovingThing
 	public Ship(int x, int y)
 	{
 	   //add code here
+		this(x,y,10,10,10);
 	}
 
 	public Ship(int x, int y, int s)
 	{
 	   //add code here
+		this(x,y,10,10,s);
 	}
 
 	public Ship(int x, int y, int w, int h, int s)
@@ -35,12 +37,12 @@ public class Ship extends MovingThing
 		speed=s;
 		try
 		{
-			URL url = getClass().getResource("/images/ship.jpg");
-			image = ImageIO.read(url);
+			image = ImageIO.read(new File("C:\\Users\\chyun\\OneDrive\\Documents\\GitHub\\Chyung_Audrey_apcsa_2021\\Unit17\\src\\ship.jpg"));
 		}
 		catch(Exception e)
 		{
 			//feel free to do something here
+			System.out.println("something");
 		}
 	}
 
@@ -48,25 +50,35 @@ public class Ship extends MovingThing
 	public void setSpeed(int s)
 	{
 	   //add more code
+		speed=s;
 	}
 
 	public int getSpeed()
 	{
-	   return 0;
+	   return speed;
 	}
 
 	public void move(String direction)
 	{
 		//add code here
+		if (direction.equals("LEFT")) {
+			setX(getX()-getSpeed());
+		} else if (direction.equals("RIGHT")) {
+			setX(getX()+getSpeed());
+		}else if (direction.equals("UP")) {
+			setY(getY()+getSpeed());
+		} else {
+			setY(getY()-getSpeed());
+		}
 	}
 
 	public void draw( Graphics window )
 	{
-   	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
+		window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
 	}
 
 	public String toString()
 	{
-		return super.toString() + getSpeed();
+		return super.toString() +" "+ getSpeed();
 	}
 }

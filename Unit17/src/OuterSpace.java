@@ -20,11 +20,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Alien alienOne;
 	private Alien alienTwo;
 
-	/* uncomment once you are ready for this part
-	 *
-   private AlienHorde horde;
+    private AlienHorde horde;
 	private Bullets shots;
-	*/
+	
 
 	private boolean[] keys;
 	private BufferedImage back;
@@ -37,7 +35,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		//instantiate other instance variables
 		//Ship, Alien
+		ship = new Ship(300,300,60,60,10);
+		//alienOne = new Alien(0,0,50,50,0);
+		//alienTwo = new Alien(50,0,50,50,0);
+		horde = new AlienHorde(20);
+		shots = new Bullets();
 
+		
 		this.addKeyListener(this);
 		new Thread(this).start();
 
@@ -68,17 +72,44 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
 
-		if(keys[0] == true)
-		{
-			ship.move("LEFT");
-		}
-
 		//add code to move Ship, Alien, etc.
-
-
-		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
-
-
+		if(keys[0] == true){
+            ship.move("LEFT");
+            if(ship.getX()<0)
+            	ship.setX(0);
+}
+        if(keys[1] == true){
+            ship.move("RIGHT");
+            if(ship.getX()>730)
+            	ship.setX(730);
+        }
+        if(keys[2] == true){
+            ship.move("DOWN");
+            if(ship.getY()<0)
+            	ship.setY(0);
+        }
+        if(keys[3] == true){
+            ship.move("UP");
+            if(ship.getY()>510)
+            	ship.setY(510);
+        }
+        if(keys[4] == true){
+           Ammo shot = new Ammo(ship.getX()+28, ship.getY(), 5);
+           shots.add(shot);
+           keys[4]=false;
+        }
+        
+        ship.draw(graphToBack);
+        horde.moveEmAll();
+        shots.moveEmAll();
+        
+        shots.cleanEmUp();
+        horde.cleanEmUp();
+        horde.removeDeadOnes(shots);
+        
+        shots.drawEmAll(graphToBack);
+        horde.drawEmAll(graphToBack);
+        
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
 
