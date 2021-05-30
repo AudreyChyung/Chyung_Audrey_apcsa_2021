@@ -67,8 +67,8 @@ public class AlienHorde
                 if((s.getY() <= a.getY()+a.getHeight()+s.getSpeed()) &&
                    (s.getX() >= a.getX() &&
                     s.getX() <= a.getX()+a.getWidth() ||
-                    s.getX()+5 >= a.getX() &&
-                    s.getX()+5 < a.getX()+a.getWidth()))
+                    s.getX()+10 >= a.getX() &&
+                    s.getX()+10 < a.getX()+a.getWidth()))
                 {
                     aliens.remove(i);
                     shots.remove(j);

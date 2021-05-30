@@ -45,7 +45,7 @@ public class Ammo extends MovingThing
 	{
 		//add code to draw the ammo
 		window.setColor(Color.yellow);
-	    window.fillRect(getX(),getY(),5,5);
+	    window.fillRect(getX(),getY(),10,10);
 	}
 	
 	
